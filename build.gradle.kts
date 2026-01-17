@@ -3,10 +3,8 @@ plugins {
     id("org.allaymc.gradle.plugin") version "0.2.1"
 }
 
-// TODO: Update the group to yours (should be same to the package of the plugin main class)
-group = "org.allaymc.javaplugintemplate"
-// TODO: Update the description to yours
-description = "Java plugin template for allay server"
+group = "org.allaymc.customstuffexample"
+description = "An example plugin that shows how to register custom item/block/entity in AllayMC"
 version = "0.1.0"
 
 java {
@@ -15,21 +13,21 @@ java {
     }
 }
 
-// See also https://github.com/AllayMC/AllayGradle
 allay {
-    // TODO: Update the api version to the latest
-    // You can find the latest version here: https://central.sonatype.com/artifact/org.allaymc.allay/api
-    api = "0.19.0"
+    api = "0.23.0-SNAPSHOT"
+    // Custom block/item/entity API are not public API and is in the server module, so we need to
+    // set `apiOnly` to false
+    apiOnly = false;
 
     plugin {
-        // TODO: Update the entrance when you change your plugin main class
-        // Same to `org.allaymc.javaplugintemplate.JavaPluginTemplate`
-        entrance = ".JavaPluginTemplate"
-        // TODO: Use your handsome name here
-        authors += "YourNameHere"
-        // TODO: Update the website to yours
-        website = "https://github.com/AllayMC/JavaPluginTemplate"
+        entrance = ".CustomStuffExample"
+        authors += "daoge_cmd"
+        website = "https://github.com/AllayMC/CustomStuffExample"
     }
+}
+
+repositories {
+    mavenLocal()
 }
 
 dependencies {
