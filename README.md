@@ -1,55 +1,57 @@
-# Allay Java Plugin Template
+# CustomStuffExample
 
-Welcome to the java plugin template for allay.
+An example plugin that demonstrates how to register custom items, blocks, and entities in AllayMC.
+
+## Features
+
+This plugin showcases:
+
+- **Custom Item Registration** - A custom edible item (`cse:fish_cake`) with golden apple effects
+- **Custom Block Registration** - A custom block (`cse:test_block`) with custom geometry and collision shape
+- **Creative Item Registration** - Adding custom items to the creative inventory
+- **Resource Pack Integration** - Textures and models for custom content
 
 ## Prerequisites
 
-- Java21 or higher.
-- Allay installed.
+- Java 21 or higher
+- AllayMC server (API version 0.23.0-SNAPSHOT or compatible)
 
-## Getting Started
+## Project Structure
 
-1. **Clone this Repository**
-
-```bash
-git clone https://github.com/AllayMC/JavaPluginTemplate.git
 ```
-   
-2. **Navigate to the Cloned Directory**
+src/main/java/org/allaymc/customstuffexample/
+├── CustomStuffExample.java    # Main plugin class
+└── item/
+    └── ItemFishCakeStack.java # Custom item implementation
 
-```bash
-cd JavaPluginTemplate
-```
-   
-3. **Change Plugin Information**
-
-- Rename package name from `org.allaymc.javaplugintemplate` to `your.group.name.and.pluginname`
-- Update [build.gradle.kts](build.gradle.kts) and [settings.gradle.kts](settings.gradle.kts)
-- Reload gradle
-   
-4. **Build and Run Your Plugin**
-
-```bash
-gradlew shadowJar
-```
-   
-This command will produce a `.jar` file in the `build/libs` directory. 
-Copy the `.jar` file to the `plugins` directory of your allay server.
-Start the allay server and check the logs to ensure your plugin loads and operates
-as expected.
-
-5. **Test Your Plugin in Gradle**
-
-```bash
-gradlew runServer
+src/main/resources/assets/resource_pack/
+├── manifest.json              # Resource pack manifest
+├── blocks.json                # Block definitions
+├── models/blocks/             # Block geometry files
+└── textures/                  # Item and block textures
+    ├── items/
+    └── blocks/
 ```
 
-This command will start an allay server with your plugin loaded.
-Then close allay server by clicking `X` in the dashboard window.
+## Building
+
+```bash
+./gradlew shadowJar
+```
+
+The compiled `.jar` file will be in `build/libs`. Copy it to your AllayMC server's `plugins` directory.
+
+## Development
+
+Run a local AllayMC server with the plugin:
+
+```bash
+./gradlew runServer
+```
 
 ## Documentation
 
-For a deeper dive into the Allay API and its functionalities, please refer to our [documentation](https://docs.allaymc.org) (WIP).
+For more information about the AllayMC API, refer to the [official documentation](https://docs.allaymc.org).
 
 ## License
 
