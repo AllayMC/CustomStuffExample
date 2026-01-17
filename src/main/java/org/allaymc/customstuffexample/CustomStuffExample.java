@@ -42,7 +42,7 @@ public class CustomStuffExample extends Plugin {
                 .addComponent(ItemGoldenAppleEdibleComponentImpl::new, ItemGoldenAppleEdibleComponentImpl.class)
                 .itemDefinitionGenerator(CustomItemDefinitionGenerator.builder()
                         .texture("cse:fish_cake")
-                        .displayName("cse:fish_cake")
+                        .displayName("Fish Cake")
                         .allowOffHand(true)
                         .build()
                 )
@@ -70,6 +70,7 @@ public class CustomStuffExample extends Plugin {
                         .build()
                 ))
                 .blockDefinitionGenerator(CustomBlockDefinitionGenerator.builder()
+                        .displayName("Test Block")
                         .materials(CustomBlockDefinitionGenerator.Materials.builder().any(material))
                         .geometry("geometry.test_block")
                         .build()
@@ -80,7 +81,7 @@ public class CustomStuffExample extends Plugin {
     protected void registerCreativeItems() {
         var group = Registries.CREATIVE_ITEMS
                 .getCategory(CreativeItemCategory.Type.CONSTRUCTION)
-                .registerGroup("cse:item_group", FISH_CAKE.createItemStack());
+                .registerGroup("Custom Stuff Example", FISH_CAKE.createItemStack());
         group.registerItem(FISH_CAKE.createItemStack());
         group.registerItem(TEST_BLOCK.getItemType().createItemStack());
     }
