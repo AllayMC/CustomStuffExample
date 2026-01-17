@@ -1,9 +1,12 @@
 {
-  "resource_pack_name": "vanilla",
+  "resource_pack_name": "Resource Pack for CustomStuffExample",
   "texture_name": "atlas.items",
   "texture_data": {
-    "test_block": {
+    "cse:test_block": {
       "textures": "textures/items/test_block"
+    },
+    "cse:fish_cake": {
+      "textures": "textures/items/fish_cake"
     }
   }
 }
