@@ -14,6 +14,7 @@ import org.allaymc.customstuffexample.item.ItemFishCakeStack;
 import org.allaymc.server.block.component.BlockStateDataComponentImpl;
 import org.allaymc.server.block.impl.BlockBehaviorImpl;
 import org.allaymc.server.block.type.AllayBlockType;
+import org.allaymc.server.block.type.BlockStateDefinition;
 import org.allaymc.server.block.type.CustomBlockDefinitionGenerator;
 import org.allaymc.server.item.component.edible.ItemGoldenAppleEdibleComponentImpl;
 import org.allaymc.server.item.type.AllayItemType;
@@ -55,8 +56,8 @@ public class CustomStuffExample extends Plugin {
         var shape = VoxelShape.builder()
                 .solid(0, 0, 0, 1, 0.0625, 1)
                 .build();
-        var material = CustomBlockDefinitionGenerator.MaterialInstance.builder()
-                .renderMethod(CustomBlockDefinitionGenerator.RenderMethod.BLEND)
+        var material = BlockStateDefinition.MaterialInstance.builder()
+                .renderMethod(BlockStateDefinition.RenderMethod.BLEND)
                 .texture("cse:test_block")
                 .ambientOcclusion(true)
                 .faceDimming(true)
@@ -69,12 +70,13 @@ public class CustomStuffExample extends Plugin {
                         .shape(shape)
                         .build()
                 ))
-                .blockDefinitionGenerator(CustomBlockDefinitionGenerator.builder()
-                        .displayName("Test Block")
-                        .materials(CustomBlockDefinitionGenerator.Materials.builder().any(material))
-                        .geometry("geometry.test_block")
-                        .build()
-                )
+                .blockDefinitionGenerator(CustomBlockDefinitionGenerator.ofConstant(
+                        BlockStateDefinition.builder()
+                                .displayName("Test Block")
+                                .materials(BlockStateDefinition.Materials.builder().any(material))
+                                .geometry("geometry.test_block")
+                                .build()
+                ))
                 .build();
     }
 
