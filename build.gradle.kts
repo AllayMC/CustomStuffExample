@@ -14,7 +14,7 @@ java {
 }
 
 allay {
-    api = "0.23.0-SNAPSHOT"
+    api = "0.23.0"
     // Custom block/item/entity API are not public API and is in the server module, so we need to
     // set `apiOnly` to false
     apiOnly = false;
